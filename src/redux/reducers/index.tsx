@@ -1,7 +1,7 @@
 import {ActionTypes} from '../actiontypes';
 
 const initialAge = {
-  age: 20,
+  id: 20,
 };
 
 const reducer = (state = initialAge, action: {type: string; payload: number}) => {
@@ -9,10 +9,10 @@ const reducer = (state = initialAge, action: {type: string; payload: number}) =>
 
   switch (action.type) {
     case ActionTypes.AGE_UP:
-      newState.age += action.payload;
+      newState.id += action.payload;
       break;
     case ActionTypes.AGE_DOWN:
-      newState.age -= action.payload;
+      newState.id -= action.payload;
       break;
   }
   return newState;

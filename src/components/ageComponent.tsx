@@ -3,7 +3,7 @@ import {useDispatch, useSelector} from 'react-redux';
 import {ageDecrement, ageIncrement} from '../redux/actions';
 
 const AgeComponent = () => {
-  const age = useSelector((state: any) => state.age);
+  const id = useSelector((state: any) => state.id);
   const dispatch = useDispatch();
   const increment = () => {
     dispatch(ageIncrement(1));
@@ -13,10 +13,10 @@ const AgeComponent = () => {
   };
   return (
     <View style={styles.centerAlign}>
-      <Text style={styles.headerText}>Your Age: {age}</Text>
+      <Text style={styles.headerText}>Product: {id}</Text>
       <View style={styles.buttonsWrap}>
-        <Button title="Age Up (+)" onPress={increment} />
-        <Button title="Age Down (-)" onPress={decrement} />
+        <Button title="Previous (-)" onPress={decrement} />
+        <Button title="Next (+)" onPress={increment} />
       </View>
     </View>
   );
