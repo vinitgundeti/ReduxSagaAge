@@ -1,15 +1,15 @@
 import {Button, StyleSheet, Text, View} from 'react-native';
 import {useDispatch, useSelector} from 'react-redux';
-import {ageDecrement, ageIncrement} from '../redux/actions';
+import {prevProductClick, nextProductClick} from '../redux/actions';
 
-const AgeComponent = () => {
+const ProdId = () => {
   const id = useSelector((state: any) => state.id);
   const dispatch = useDispatch();
   const increment = () => {
-    dispatch(ageIncrement(1));
+    dispatch(nextProductClick(1));
   };
   const decrement = () => {
-    dispatch(ageDecrement(1));
+    dispatch(prevProductClick(1));
   };
   return (
     <View style={styles.centerAlign}>
@@ -41,4 +41,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default AgeComponent;
+export default ProdId;

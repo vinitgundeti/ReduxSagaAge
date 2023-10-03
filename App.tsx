@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {
   Button,
   SafeAreaView,
@@ -7,11 +7,11 @@ import {
   View,
   useColorScheme,
 } from 'react-native';
-import {Provider, useSelector} from 'react-redux';
+import {Provider} from 'react-redux';
 
 import {Colors} from 'react-native/Libraries/NewAppScreen';
 import store from './src/redux/store';
-import AgeComponent from './src/components/ageComponent';
+import ProdId from './src/components/prodId';
 
 function App(): JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
@@ -23,7 +23,7 @@ function App(): JSX.Element {
   return (
     <Provider store={store}>
       <SafeAreaView style={[backgroundStyle, styles.container]}>
-        <AgeComponent />
+        <ProdId />
       </SafeAreaView>
     </Provider>
   );
