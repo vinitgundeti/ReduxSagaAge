@@ -1,10 +1,10 @@
 import {ActionTypes} from '../actiontypes';
 
-const initialAge = {
+const initialState = {
   id: 20,
 };
 
-const reducer = (state = initialAge, action: {type: string; payload: number}) => {
+const reducer = (state = initialState, action: {type: string; payload: any}) => {
   const newState = {...state};
 
   switch (action.type) {
