@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {
   Button,
   SafeAreaView,
@@ -7,8 +7,11 @@ import {
   View,
   useColorScheme,
 } from 'react-native';
+import {Provider} from 'react-redux';
 
 import {Colors} from 'react-native/Libraries/NewAppScreen';
+import store from './src/redux/store';
+import ProdId from './src/components/prodId';
 
 function App(): JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
@@ -17,32 +20,18 @@ function App(): JSX.Element {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
   };
 
-  const [age, setAge] = useState(18)
-
-  const increment=()=>{
-    setAge(prevState=> prevState+1)
-  }
-
-  const decrement=()=>{
-    setAge(prevState=> prevState-1)
-  }
-
   return (
-    <SafeAreaView style={[backgroundStyle, styles.container]}>
-      <View style={styles.centerAlign}>
-        <Text style={styles.headerText}>Your Age: {age}</Text>
-        <View style={styles.buttonsWrap}>
-          <Button title="Age Down" onPress={decrement}/>
-          <Button title="Age Up" onPress={increment}/>
-        </View>
-      </View>
-    </SafeAreaView>
+    <Provider store={store}>
+      <SafeAreaView style={[backgroundStyle, styles.container]}>
+        <ProdId />
+      </SafeAreaView>
+    </Provider>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    paddingTop: 30
+    paddingTop: 30,
   },
   centerAlign: {
     alignItems: 'center',
@@ -51,12 +40,12 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-evenly',
     width: '100%',
-    marginTop: 10
+    marginTop: 10,
   },
   headerText: {
     fontWeight: '700',
-    fontSize: 30
-  }
+    fontSize: 30,
+  },
 });
 
 export default App;
