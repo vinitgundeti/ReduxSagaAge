@@ -3,13 +3,15 @@ import {useDispatch, useSelector} from 'react-redux';
 import {
   prevProductClick,
   nextProductClick,
+  searchProduct,
   //  searchProduct
 } from '../redux/actions';
+
 import {useState} from 'react';
 
 const ProdId = () => {
   const id = useSelector((state: any) => state.id);
-  // const products = useSelector((state: any) => state.products);
+  const products = useSelector((state: any) => state.products);
   const [textValue, setTextValue] = useState('');
   const dispatch = useDispatch();
   const increment = () => {
@@ -20,9 +22,10 @@ const ProdId = () => {
   };
 
   const onInputChange = (e: string) => {
-    setTextValue(e);
-    // dispatch(searchProduct(e))
+    setTextValue(e)
+    dispatch(searchProduct(e))
   };
+
   return (
     <View style={styles.centerAlign}>
       <Text style={styles.headerText}>Product: {id}</Text>
@@ -37,9 +40,9 @@ const ProdId = () => {
         onChangeText={onInputChange}
       />
 
-      {/* {products?.map((item: any, index: number) => (
+      {products?.map((item: any, index: number) => (
         <Text key={index}>{item.title}</Text>
-      ))} */}
+      ))}
     </View>
   );
 };

@@ -13,3 +13,10 @@ export const prevProductClick = (payload: number) => {
     payload,
   };
 };
+
+export const searchProduct=(payload: string)=>{
+  return {
+    type: ActionTypes.SEARCH_PRODUCT,
+    payload,
+  };
+}
